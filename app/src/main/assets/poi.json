@@ -1,0 +1,23 @@
+[
+   {
+      "site":"Museo de Arte",
+      "url":"https://museodeartedeltolima.com.co",
+      "description":"es uno de los más activos museos regionales de Colombia",
+      "image":"https://upload.wikimedia.org/wikipedia/commons/a/a5/Museo_de_Arte_del_Tolima_116.jpg",
+      "stars":"Puntuacion: 4.88"
+   },
+   {
+      "site":"Parque de la Musica",
+      "url":"https://monumentosdeibague.es.tl/Parque-de-la-Musica.htm",
+      "description":"Una fuente luminosa que se activa al ritmo de la música",
+      "image":"https://elturismoencolombia.com/wp-content/uploads/2018/07/ibague_parque_musica_tolima_colombia_travel.jpg",
+      "stars":"Puntuacion: 4.9"
+   },
+   {
+      "site":"Conservatorio del Tolima",
+      "url":"https://conservatoriodeltolima.edu.co",
+      "description":"El Conservatorio del Tolima es una escuela musical situada en Ibagué",
+      "image":"https://upload.wikimedia.org/wikipedia/commons/e/e4/Conservatorio_del_Tolima.jpg",
+      "stars":"Puntuacion: 4.2"
+   }
+]
