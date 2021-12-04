@@ -6,10 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import co.edu.udea.poi.model.POIItem
 import com.squareup.picasso.Picasso
 
 class PoiAdapter(
-    private val poiList:ArrayList<POIItem>
+    private val poiList:ArrayList<POIItem>,
+    private val onItemClicked:(POIItem) -> Unit
+
     ): RecyclerView.Adapter<PoiAdapter.ViewHolder>() {
 
 
@@ -22,6 +25,7 @@ class PoiAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val poi=poiList[position]
+        holder.itemView.setOnClickListener { onItemClicked(poiList[position]) }
         holder.bind(poi)
 
     }
@@ -35,11 +39,11 @@ class PoiAdapter(
         private var descriptionTextView: TextView = itemView.findViewById(R.id.description_text_view)
         private var startsTextView: TextView = itemView.findViewById(R.id.stars_text_view)
         private var pictureImageView: ImageView = itemView.findViewById(R.id.picture_image_view)
-        fun bind(poi:POIItem){
+        fun bind(poi: POIItem){
             nameTextView.text = poi.site
             descriptionTextView.text = poi.description
             startsTextView.text = poi.stars
-            Picasso.get().load(poi.image).into(pictureImageView)
+            Picasso.get().load("https://www.gstatic.com/webp/gallery/4.sm.jpg").into(pictureImageView)
 
 
 

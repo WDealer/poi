@@ -1,10 +1,13 @@
 package co.edu.udea.poi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.DividerItemDecoration
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import co.edu.udea.poi.model.POI
+import co.edu.udea.poi.model.POIItem
 import com.google.gson.Gson
 
 class ListPoiActivity : AppCompatActivity() {
@@ -22,7 +25,7 @@ class ListPoiActivity : AppCompatActivity() {
 
         //listPoi = createMockpoi()
         listPoi = loadJson()
-        poiAdapter = PoiAdapter(listPoi)
+        poiAdapter = PoiAdapter(listPoi,onItemClicked = {onPoiClicked(it)})
 
         poiRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
@@ -34,11 +37,19 @@ class ListPoiActivity : AppCompatActivity() {
 
     }
 
+    private fun onPoiClicked(poi: POIItem) {
+        Log.d("lugar",poi.site)
+        val intent = Intent(this,DetalleActivity::class.java)
+        intent.putExtra("poi",poi)
+        startActivity(intent)
+
+    }
+
     private fun loadJson(): ArrayList<POIItem> {
 
         var poiString: String = applicationContext.assets.open("poi.json").bufferedReader().use { it.readText() }
         val gson = Gson()
-        val data = gson.fromJson(poiString,POI::class.java)
+        val data = gson.fromJson(poiString, POI::class.java)
         return data
 
 
